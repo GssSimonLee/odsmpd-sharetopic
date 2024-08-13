@@ -16,8 +16,8 @@ const datas = [{
 }, {
   id: 4,
   date: '2024/09/12',
-  topic: 'RDBMS vs NoSQL',
-  speaker: 'Garry Chiang'
+  topic: 'Kubernetes',
+  speaker: 'Simon Lee'
 }, {
   id: 5,
   date: '2024/09/26',
@@ -41,8 +41,8 @@ const datas = [{
 }, {
   id: 9,
   date: '2024/11/14',
-  topic: 'Kubernetes',
-  speaker: 'Simon Lee'
+  topic: 'RDBMS vs NoSQL',
+  speaker: 'Garry Chiang'
 }, {
   id: 10,
   date: '2024/11/28',
