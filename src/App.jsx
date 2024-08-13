@@ -1,6 +1,6 @@
-import { useState, useEffect } from 'react';
-import './App.css'
-import datas from './datas';
+import { useState, useEffect } from "react";
+import "./App.css";
+import datas from "./datas";
 
 function Header({ headerText }) {
   return (
@@ -12,7 +12,7 @@ function Header({ headerText }) {
 
 function TableContainer() {
   return (
-    <div className='table-container'>
+    <div className="table-container">
       <TableHeader />
       <TableRow cells={datas} />
     </div>
@@ -21,7 +21,7 @@ function TableContainer() {
 
 function TableHeader() {
   return (
-    <div className='table-row heading'>
+    <div className="table-row heading">
       <RowItem text="Date" col="1" align="center" />
       <RowItem text="Topic" col="5" align="center" />
       <RowItem text="Speaker" col="2" />
@@ -30,12 +30,18 @@ function TableHeader() {
 }
 
 function TableRow({ cells }) {
-  return cells.map(cell => {
+  return cells.map((cell) => {
     const _date = new Date(cell.date);
     return (
-      <div className='table-row' key={cell.id}>
-        <RowItem text={`${String(_date.getMonth() + 1).padStart(2, '0')}/${String(_date.getDate()).padStart(2, '0')}`} col="1" align="center" />
-        <RowItem text={cell.topic} col="5" />
+      <div className="table-row" key={cell.id}>
+        <RowItem
+          text={`${String(_date.getMonth() + 1).padStart(2, "0")}/${String(
+            _date.getDate()
+          ).padStart(2, "0")}`}
+          col="1"
+          align="center"
+        />
+        <RowItem text={cell.topic} col="5" align="center" />
         <RowItem text={cell.speaker} col="2" align="center" />
       </div>
     );
@@ -43,14 +49,10 @@ function TableRow({ cells }) {
 }
 
 function RowItem({ text, col, align }) {
-  const _col = col || '1';
-  const _align = align || 'left'
-  const _className = ['row-item', `col-${_col}`, `align-${_align}`].join(' ');
-  return (
-    <div className={_className}>
-      {text}
-    </div>
-  );
+  const _col = col || "1";
+  const _align = align || "left";
+  const _className = ["row-item", `col-${_col}`, `align-${_align}`].join(" ");
+  return <div className={_className}>{text}</div>;
 }
 
 function Footer({ opacity }) {
@@ -71,15 +73,15 @@ function App() {
       let newOpacity = scrollPosition / maxScroll;
       if (newOpacity > 1) newOpacity = 1;
       setOpacity(newOpacity);
-    }
+    };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-      window.addEventListener('scroll', handleScroll);
+      window.addEventListener("scroll", handleScroll);
     };
   }, []);
-  const headerText = "2024 下半年 PD 技術分享會"
+  const headerText = "2024 下半年 PD 技術分享會";
   return (
     <>
       <Header headerText={headerText} />
@@ -91,4 +93,4 @@ function App() {
   );
 }
 
-export default App
+export default App;
